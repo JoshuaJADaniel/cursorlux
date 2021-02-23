@@ -5,6 +5,7 @@ $darkText: #000000;
 $lightText: #ffffff;
 $lightBackground: #ffffff;
 $lightBackgroundMuted: #ededed;
+$menuBorder: 1px solid rgba(0, 0, 0, 0.1);
 
 $popupWidth: 320px;
 $popupPadding: 16px;
@@ -47,6 +48,38 @@ header {
 
     &:hover {
       opacity: 0.7;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+
+  color: $darkText;
+  font-size: 12px;
+
+  button {
+    flex-grow: 1;
+    padding: 8px 0;
+    text-align: center;
+
+    border: $menuBorder;
+    background: $lightBackgroundMuted;
+    transition: background $defaultTransition;
+
+    &.active {
+      border-bottom: none;
+    }
+
+    &:hover,
+    &.active {
+      background: $lightBackground;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto 8px auto;
     }
   }
 }
