@@ -1,0 +1,20 @@
+@import "variables";
+@import "overrides";
+
+$darkText: #000000;
+$lightText: #ffffff;
+$lightBackground: #ffffff;
+$lightBackgroundMuted: #ededed;
+
+$popupWidth: 320px;
+$popupPadding: 16px;
+
+body {
+  color: $darkText;
+  width: $popupWidth;
+}
+
+body,
+button {
+  font-family: "Comfortaa", sans-serif;
+}
