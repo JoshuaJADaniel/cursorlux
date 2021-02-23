@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "name": "Mouse Highlighter",
+  "description" : "A customizable mouse highlighter extension to highlight your cursor and clicks!",
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_icon": "images/toolbar-icon.png"
+  }
+}
