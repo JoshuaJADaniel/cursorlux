@@ -18,3 +18,9 @@ body,
 button {
   font-family: "Comfortaa", sans-serif;
 }
+
+section {
+  height: 100px;
+  padding: $popupPadding;
+  background: $lightBackground;
+}
