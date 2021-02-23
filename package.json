@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "mouse-highlighter",
+  "description": "A customizable mouse highlighter extension to highlight your cursor and clicks!",
+  "private": true,
+  "scripts": {
+    "sass": "sass --no-source-map styles:styles",
+    "watch-sass": "sass --watch --no-source-map styles:styles"
+  },
+  "author": "Joshua J. A. Daniel",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.32.8"
+  }
+}
