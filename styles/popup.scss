@@ -9,6 +9,8 @@ $lightBackgroundMuted: #ededed;
 $popupWidth: 320px;
 $popupPadding: 16px;
 
+$smallButtonSize: 25px;
+
 body {
   color: $darkText;
   width: $popupWidth;
@@ -17,6 +19,36 @@ body {
 body,
 button {
   font-family: "Comfortaa", sans-serif;
+}
+
+header {
+  height: 50px;
+  padding: 0 $popupPadding;
+  background: $lightBackground;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    background: none;
+    width: $smallButtonSize;
+    height: $smallButtonSize;
+
+    opacity: 0.4;
+    margin-bottom: 3px;
+    border-radius: 50%;
+
+    transition: opacity $defaultTransition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 
 section {
