@@ -1,16 +1,10 @@
 @import "variables";
 @import "overrides";
-
-$darkText: #000000;
-$lightText: #ffffff;
-$lightBackground: #ffffff;
-$lightBackgroundMuted: #ededed;
-$menuBorder: 1px solid rgba(0, 0, 0, 0.1);
+@import "tab-style";
 
 $popupWidth: 320px;
-$popupPadding: 16px;
-
-$smallButtonSize: 25px;
+$popupSpacing: 16px;
+$defaultImageSize: 24px;
 
 body {
   color: $darkText;
@@ -24,7 +18,7 @@ button {
 
 header {
   height: 50px;
-  padding: 0 $popupPadding;
+  padding: 0 $popupSpacing;
   background: $lightBackground;
 
   display: flex;
@@ -32,19 +26,9 @@ header {
   justify-content: space-between;
 
   button {
-    background: none;
-    width: $smallButtonSize;
-    height: $smallButtonSize;
-
     opacity: 0.4;
-    margin-bottom: 3px;
     border-radius: 50%;
-
     transition: opacity $defaultTransition;
-
-    &:focus {
-      outline: none;
-    }
 
     &:hover {
       opacity: 0.7;
@@ -52,40 +36,19 @@ header {
   }
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-
-  color: $darkText;
-  font-size: 12px;
-
-  button {
-    flex-grow: 1;
-    padding: 8px 0;
-    text-align: center;
-
-    border: $menuBorder;
-    background: $lightBackgroundMuted;
-    transition: background $defaultTransition;
-
-    &.active {
-      border-bottom: none;
-    }
-
-    &:hover,
-    &.active {
-      background: $lightBackground;
-    }
-
-    img {
-      display: block;
-      margin: 0 auto 8px auto;
-    }
-  }
+.logo-image {
+  width: auto;
+  height: $defaultImageSize;
 }
 
-section {
-  height: 100px;
-  padding: $popupPadding;
-  background: $lightBackground;
+.pause-image {
+  width: $defaultImageSize;
+  height: $defaultImageSize;
+}
+
+.menu-image {
+  width: auto;
+  height: $defaultImageSize;
+  margin: 0 auto 8px auto;
+  display: block;
 }
