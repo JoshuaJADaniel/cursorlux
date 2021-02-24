@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title></title>
-    <link rel="stylesheet" href="/styles/popup.css" />
+    <link rel="stylesheet" href="../styles/popup.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       rel="stylesheet"
@@ -12,46 +12,63 @@
   <body>
     <header>
       <img
-        src="/images/full-logo.svg"
+        class="logo-image"
+        src="../images/full-logo.svg"
         alt="Mouse Highlighter Logo"
-        height="24"
-        width="auto"
       />
       <button>
-        <img src="/images/pause-circle.svg" alt="" height="25" width="25" />
+        <img
+          class="pause-image"
+          src="../images/pause-circle.svg"
+          alt="Pause Extension"
+        />
       </button>
     </header>
-    <nav>
-      <button class="active">
-        <img
-          src="/images/mouse-click.svg"
-          alt="Mouse Click"
-          height="25"
-          width="auto"
-        />
-        <span>Click Effect</span>
-      </button>
-      <button>
-        <img
-          src="/images/mouse-trail.svg"
-          alt="Mouse Trail"
-          height="25"
-          width="auto"
-        />
-        <span>Mouse Trail</span>
-      </button>
-      <button>
-        <img
-          src="/images/mouse-static.svg"
-          alt="Mouse Static"
-          height="25"
-          width="auto"
-        />
-        <span>Background</span>
-      </button>
-    </nav>
-    <section>
-      <h1>Hello World!</h1>
-    </section>
+    <main class="tab-wrapper">
+      <input type="radio" id="tab-mouse-click" name="menu-options" checked />
+      <input type="radio" id="tab-mouse-trail" name="menu-options" />
+      <input type="radio" id="tab-mouse-static" name="menu-options" />
+      <ul class="tabs">
+        <li class="tab">
+          <label for="tab-mouse-click">
+            <img
+              class="menu-image"
+              src="../images/mouse-click.svg"
+              alt="Click Effect"
+            />
+            <span>Click Effect</span>
+          </label>
+        </li>
+        <li class="tab">
+          <label for="tab-mouse-trail">
+            <img
+              class="menu-image"
+              src="../images/mouse-trail.svg"
+              alt="Mouse Trail"
+            />
+            <span>Mouse Trail</span>
+          </label>
+        </li>
+        <li class="tab">
+          <label for="tab-mouse-static">
+            <img
+              class="menu-image"
+              src="../images/mouse-static.svg"
+              alt="Background"
+            />
+            <span>Background</span>
+          </label>
+        </li>
+      </ul>
+      <section class="tab-content">
+        <h1>Mouse Click</h1>
+      </section>
+      <section class="tab-content">
+        <h1>Mouse Trail</h1>
+      </section>
+      <section class="tab-content">
+        <h1>Mouse Static</h1>
+      </section>
+    </main>
   </body>
 </html>
