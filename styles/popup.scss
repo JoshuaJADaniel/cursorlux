@@ -4,6 +4,7 @@
 
 $popupWidth: 320px;
 $popupSpacing: 16px;
+$stateImageSize: 28px;
 $defaultImageSize: 24px;
 
 body {
@@ -36,13 +37,23 @@ header {
   }
 }
 
-.logo-image {
-  width: auto;
-  height: $defaultImageSize;
+.tab-content {
+  height: 350px;
+  margin-top: 8px;
+  padding: $popupSpacing;
+
+  label {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  input {
+    transform: scale(1.2);
+  }
 }
 
-.pause-image {
-  width: $defaultImageSize;
+.logo-image {
+  width: auto;
   height: $defaultImageSize;
 }
 
@@ -51,4 +62,21 @@ header {
   height: $defaultImageSize;
   margin: 0 auto 8px auto;
   display: block;
+}
+
+.state-button {
+  width: $stateImageSize;
+  height: $stateImageSize;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.pause-image {
+    background-image: url("../images/pause-circle.svg");
+  }
+
+  &.play-image {
+    background-image: url("../images/play-circle.svg");
+  }
 }
