@@ -1,0 +1,16 @@
+@import "src/styles/variables";
+
+.grow {
+  flex-grow: 1;
+}
+
+.button {
+  svg {
+    color: rgba(0, 0, 0, 0.4);
+    transition: color $defaultTransition;
+  }
+
+  &:hover svg {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
