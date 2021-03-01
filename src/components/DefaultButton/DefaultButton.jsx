@@ -3,8 +3,19 @@ import PropTypes from "prop-types";
 import { Box, Button } from "@material-ui/core";
 
 const DefaultButton = ({ message, onClick, fixed }) => (
-  <Box position={fixed ? "absolute" : "static"} m={fixed ? 2.8 : 0} bottom={0}>
-    <Button size="large" color="primary" variant="contained" onClick={onClick}>
+  <Box
+    bottom={0}
+    p={fixed ? 2.8 : 0}
+    width={fixed ? 1 : "auto"}
+    position={fixed ? "absolute" : "static"}
+  >
+    <Button
+      fullWidth
+      size="large"
+      color="primary"
+      variant="contained"
+      onClick={onClick}
+    >
       {message}
     </Button>
   </Box>
