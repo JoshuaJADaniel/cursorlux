@@ -29,7 +29,7 @@ const DefaultSlider = ({
   };
 
   return (
-    <Box mt={2.5} mb={0.5}>
+    <Box mt={2.5} mb={0.8}>
       <Typography>{title}</Typography>
       <Slider
         marks
