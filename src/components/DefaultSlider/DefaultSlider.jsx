@@ -2,10 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Slider, Typography } from "@material-ui/core";
 
-const DefaultSlider = ({ title, value, onChange, size, percent, maxValue }) => {
+const DefaultSlider = ({
+  title,
+  value,
+  pixels,
+  percent,
+  maxValue,
+  onChange,
+}) => {
   let max, min, format;
 
-  if (size) {
+  if (pixels) {
     min = 0;
     max = maxValue || 80;
     format = (val) => `${val}px`;
@@ -39,7 +46,7 @@ const DefaultSlider = ({ title, value, onChange, size, percent, maxValue }) => {
 };
 
 DefaultSlider.propTypes = {
-  size: PropTypes.bool,
+  pixels: PropTypes.bool,
   percent: PropTypes.bool,
   maxValue: PropTypes.number,
   title: PropTypes.string.isRequired,
