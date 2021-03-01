@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+div.MuiBox-root {
+  box-sizing: border-box;
+}
+
 div.MuiAlert-message {
   padding-top: 10px;
 }
