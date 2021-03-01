@@ -9,11 +9,9 @@ import "styles/main.scss";
 import material from "styles/material";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={material}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={material}>
+    <App />
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
