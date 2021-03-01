@@ -5,5 +5,12 @@
   "description": "A customizable mouse highlighter extension to highlight your cursor and clicks!",
   "browser_action": {
     "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "96": "icon96.png",
+    "128": "icon128.png"
   }
 }
