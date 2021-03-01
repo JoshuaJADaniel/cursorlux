@@ -26,3 +26,15 @@ div.MuiSnackbar-root {
 div.MuiToolbar-regular {
   min-height: 56px;
 }
+
+button.MuiTab-root {
+  opacity: 1;
+}
+
+.Mui-selected .MuiTab-wrapper {
+  color: #ffffff;
+}
+
+.MuiTab-wrapper {
+  color: #bcd3f7;
+}
