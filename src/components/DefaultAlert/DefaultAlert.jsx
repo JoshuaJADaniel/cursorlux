@@ -9,7 +9,7 @@ const DefaultAlert = ({ message, visible, onClose, severity }) => (
     open={visible}
     onClose={onClose}
     autoHideDuration={4000}
-    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
   >
     <Alert severity={severity} variant="filled" onClose={onClose}>
       {message}
