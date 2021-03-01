@@ -4,7 +4,11 @@ import { Box } from "@material-ui/core";
 
 const TabPanel = ({ index, value, children }) => (
   <div hidden={value !== index}>
-    {value === index && <Box p={2}>{children}</Box>}
+    {value === index && (
+      <Box pt={2} px={2.8}>
+        {children}
+      </Box>
+    )}
   </div>
 );
 
