@@ -8,7 +8,7 @@ const DefaultAlert = ({ message, visible, onClose, severity }) => (
   <Snackbar
     open={visible}
     onClose={onClose}
-    autoHideDuration={3000}
+    autoHideDuration={4000}
     anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
   >
     <Alert severity={severity} variant="filled" onClose={onClose}>
