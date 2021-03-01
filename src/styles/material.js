@@ -17,6 +17,15 @@ const material = createMuiTheme({
       textTransform: "none",
     },
   },
+  overrides: {
+    MuiCheckbox: {
+      colorSecondary: {
+        "&$checked": {
+          color: colors.primary,
+        },
+      },
+    },
+  },
 });
 
 export default material;
