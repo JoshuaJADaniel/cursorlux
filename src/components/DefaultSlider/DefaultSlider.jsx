@@ -17,6 +17,10 @@ const DefaultSlider = ({ title, value, onChange, size, percent }) => {
     format = (val) => `${val}%`;
   }
 
+  const parseChange = (event, value) => {
+    onChange(value);
+  };
+
   return (
     <Box mt={2.5} mb={0.5}>
       <Typography>{title}</Typography>
@@ -26,7 +30,7 @@ const DefaultSlider = ({ title, value, onChange, size, percent }) => {
         max={max}
         min={min}
         value={value}
-        onChange={onChange}
+        onChange={parseChange}
         valueLabelDisplay="auto"
         valueLabelFormat={format}
       />
