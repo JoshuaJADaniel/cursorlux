@@ -8,6 +8,11 @@ body {
   position: relative;
 }
 
+header.MuiAppBar-root {
+  box-shadow: 0 5px 10px rgba($primary, 0.055),
+    0 15px 30px rgba($primary, 0.125);
+}
+
 div.MuiBox-root {
   box-sizing: border-box;
 }
