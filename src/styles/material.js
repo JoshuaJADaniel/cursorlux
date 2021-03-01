@@ -20,6 +20,15 @@ const material = createMuiTheme({
       textTransform: "none",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: -1,
+      md: -1,
+      lg: -1,
+      xl: -1,
+    },
+  },
 });
 
 export default material;
