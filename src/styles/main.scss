@@ -5,3 +5,7 @@ body {
   width: 320px;
   height: 600px;
 }
+
+span.MuiCheckbox-colorSecondary.Mui-checked {
+  color: $primary;
+}
