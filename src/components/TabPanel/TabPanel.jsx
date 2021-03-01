@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "@material-ui/core";
+import { Box, Fade } from "@material-ui/core";
 
 const TabPanel = ({ index, value, children }) => (
-  <div hidden={value !== index}>
-    {value === index && (
-      <Box pt={2} px={2.8}>
-        {children}
-      </Box>
-    )}
-  </div>
+  <Fade in={value === index} timeout={600}>
+    <Box pt={2} px={2.8} hidden={value !== index}>
+      {children}
+    </Box>
+  </Fade>
 );
 
 TabPanel.propTypes = {
