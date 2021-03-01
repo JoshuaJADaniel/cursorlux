@@ -1,11 +1,24 @@
 @import "src/styles/variables";
+@import "src/styles/development";
 
 body {
   margin: 0;
   width: 320px;
   height: 600px;
+  position: relative;
 }
 
-span.MuiCheckbox-colorSecondary.Mui-checked {
-  color: $primary;
+div.MuiAlert-message {
+  padding-top: 10px;
+}
+
+div.MuiSnackbar-root {
+  bottom: 75px;
+  left: 22.4px;
+  right: 22.4px;
+  position: absolute;
+}
+
+div.MuiToolbar-regular {
+  min-height: 56px;
 }
