@@ -11,7 +11,7 @@ const material = createMuiTheme({
     },
   },
   typography: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeightRegular: 500,
     fontFamily: ["'Comfortaa'", "sans-serif"].join(","),
     button: {
