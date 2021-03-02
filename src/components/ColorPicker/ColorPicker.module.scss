@@ -2,14 +2,14 @@
   width: 100% !important;
   display: grid !important;
 
-  gap: 15px 15px;
+  gap: 15px 20px;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   grid-template-areas:
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . .";
+    ". . . . . ."
+    ". . . . . ."
+    ". . . . . .";
 
   * {
     height: 0 !important;
