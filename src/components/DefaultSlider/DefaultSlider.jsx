@@ -10,6 +10,7 @@ const DefaultSlider = ({
   percent,
   maxValue,
   onChange,
+  seconds,
 }) => {
   let max, min, format;
 
@@ -23,6 +24,12 @@ const DefaultSlider = ({
     min = 0;
     max = maxValue || 100;
     format = (val) => `${val}%`;
+  }
+
+  if (seconds) {
+    min = 0;
+    max = maxValue || 20;
+    format = (val) => `${val}s`;
   }
 
   const parseChange = (event, value) => {
@@ -49,6 +56,7 @@ const DefaultSlider = ({
 DefaultSlider.propTypes = {
   pixels: PropTypes.bool,
   percent: PropTypes.bool,
+  seconds: PropTypes.bool,
   step: PropTypes.number,
   maxValue: PropTypes.number,
   title: PropTypes.string.isRequired,
