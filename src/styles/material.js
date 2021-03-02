@@ -11,11 +11,13 @@ const material = createMuiTheme({
     },
   },
   typography: {
-    fontSize: 13,
-    fontWeightRegular: 500,
+    fontWeightRegular: 700,
     fontFamily: ["'Comfortaa'", "sans-serif"].join(","),
-    button: {
+    body1: {
       fontSize: 14,
+    },
+    button: {
+      fontSize: 15,
       fontWeight: 700,
       textTransform: "none",
     },
