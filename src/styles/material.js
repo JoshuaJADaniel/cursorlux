@@ -18,7 +18,6 @@ const material = createMuiTheme({
     },
     button: {
       fontSize: 15,
-      fontWeight: 700,
       textTransform: "none",
     },
   },
