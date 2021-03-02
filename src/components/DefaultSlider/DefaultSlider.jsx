@@ -4,6 +4,7 @@ import { Box, Slider, Typography } from "@material-ui/core";
 
 const DefaultSlider = ({
   title,
+  step,
   value,
   pixels,
   percent,
@@ -33,10 +34,10 @@ const DefaultSlider = ({
       <Typography>{title}</Typography>
       <Slider
         marks
-        step={5}
         max={max}
         min={min}
         value={value}
+        step={step || 5}
         onChange={parseChange}
         valueLabelDisplay="auto"
         valueLabelFormat={format}
@@ -48,6 +49,7 @@ const DefaultSlider = ({
 DefaultSlider.propTypes = {
   pixels: PropTypes.bool,
   percent: PropTypes.bool,
+  step: PropTypes.number,
   maxValue: PropTypes.number,
   title: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
