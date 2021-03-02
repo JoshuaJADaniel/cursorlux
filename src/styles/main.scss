@@ -1,6 +1,10 @@
 @import "src/styles/variables";
 @import "src/styles/development";
 
+:root {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   width: 320px;
@@ -30,6 +34,10 @@ div.MuiSnackbar-root {
 
 div.MuiToolbar-regular {
   min-height: 56px;
+}
+
+span.MuiFormControlLabel-label {
+  margin-top: 2px;
 }
 
 button.MuiTab-root {
