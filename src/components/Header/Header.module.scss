@@ -1,25 +1,33 @@
 @import "src/styles/variables";
 
+$headerHeight: 55px;
+$buttonColor: rgb(0 0 0 / 40%);
+$buttonColorHover: rgb(0 0 0 / 70%);
+
 .grow {
   flex-grow: 1;
 }
 
 .headerSpacing {
+  height: $headerHeight;
   padding: 0 $edgeSpacing;
 
   > div {
     margin: 0;
     padding: 0;
+    height: 100%;
+    min-height: auto;
   }
 }
 
-.buttonColors {
+.buttonStyles {
   svg {
-    color: rgba(0, 0, 0, 0.4);
+    stroke-width: 1.5;
+    color: $buttonColor;
     transition: color $defaultTransition;
   }
 
   &:hover svg {
-    color: rgba(0, 0, 0, 0.7);
+    color: $buttonColorHover;
   }
 }
