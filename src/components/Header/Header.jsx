@@ -38,12 +38,13 @@ const Header = () => {
       className={styles.headerSpacing}
     >
       <Toolbar>
-        <img src={FullLogo} height={24} alt="Mouse Highlighter" />
+        <img src={FullLogo} height={24} alt="Logo" />
         <div className={styles.grow} />
         <IconButton
           edge="end"
           onClick={handleActive}
           className={styles.buttonColors}
+          aria-label={active ? "Pause" : "Activate"}
         >
           {active ? (
             <FiPauseCircle size={28} strokeWidth={1.5} />
