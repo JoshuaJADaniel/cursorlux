@@ -12,15 +12,23 @@ const Header = () => {
 
   const handleActive = () => {
     const newActive = !active;
-    chrome.storage.sync.set({ active: boolToStr(newActive) }, () => {
-      setActive(newActive);
-    });
+
+    if (chrome && chrome.storage) {
+      chrome.storage.sync.set({ active: boolToStr(newActive) }, () => {
+        setActive(newActive);
+      });
+      return;
+    }
+
+    setActive(newActive);
   };
 
   useEffect(() => {
-    chrome.storage.sync.get("active", ({ active }) => {
-      setActive(strToBool(active));
-    });
+    if (chrome && chrome.storage) {
+      chrome.storage.sync.get("active", ({ active }) => {
+        setActive(strToBool(active));
+      });
+    }
   }, []);
 
   return (
