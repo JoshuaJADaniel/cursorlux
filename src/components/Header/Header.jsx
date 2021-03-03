@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import FullLogo from "assets/full-logo.svg";
-import { strToBool, boolToStr } from "utils/typeConversions";
 import { FiPauseCircle, FiPlayCircle } from "react-icons/fi";
 import { AppBar, IconButton, Toolbar } from "@material-ui/core";
 
@@ -14,7 +13,7 @@ const Header = () => {
     const newActive = !active;
 
     if (chrome && chrome.storage) {
-      chrome.storage.sync.set({ active: boolToStr(newActive) }, () => {
+      chrome.storage.sync.set({ active: newActive }, () => {
         setActive(newActive);
       });
       return;
@@ -26,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     if (chrome && chrome.storage) {
       chrome.storage.sync.get("active", ({ active }) => {
-        setActive(strToBool(active));
+        setActive(active);
       });
     }
   }, []);
@@ -43,13 +42,13 @@ const Header = () => {
         <IconButton
           edge="end"
           onClick={handleActive}
-          className={styles.buttonColors}
+          className={styles.buttonStyles}
           aria-label={active ? "Pause" : "Activate"}
         >
           {active ? (
-            <FiPauseCircle size={28} strokeWidth={1.5} />
+            <FiPauseCircle size={28} role="img" />
           ) : (
-            <FiPlayCircle size={28} strokeWidth={1.5} />
+            <FiPlayCircle size={28} role="img" />
           )}
         </IconButton>
       </Toolbar>
