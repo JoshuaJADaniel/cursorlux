@@ -32,14 +32,18 @@ const Header = () => {
   }, []);
 
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar
+      color="transparent"
+      position="static"
+      className={styles.headerSpacing}
+    >
       <Toolbar>
         <img src={FullLogo} height={24} alt="Mouse Highlighter" />
         <div className={styles.grow} />
         <IconButton
           edge="end"
           onClick={handleActive}
-          className={styles.buttonOverrides}
+          className={styles.buttonColors}
         >
           {active ? (
             <FiPauseCircle size={28} strokeWidth={1.5} />
