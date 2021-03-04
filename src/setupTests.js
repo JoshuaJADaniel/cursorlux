@@ -1,3 +1,4 @@
-// Since this application uses the global chrome API, this line allows every
-// component test to run without throwing errors due to undefined variables
-global.chrome = {};
+// Without this, component tests will not be able to thoroughly unit test every
+// component (and throw errors when unit testing components utilizing the
+// Chrome object).
+import "utils/chromeMock";
