@@ -12,48 +12,46 @@ const props = {
 test("Renders the correct content", () => {
   const { getByText } = render(<Navigation {...props} />);
 
-  getByText("Tab 1");
-  getByText("Tab 2");
-  getByText("Tab 3");
+  props.options.forEach((option) => {
+    getByText(option);
+  });
 });
 
 test("Ensure initial tab indices are accurate", () => {
   const { getByLabelText } = render(<Navigation {...props} />);
 
-  // Tab 1 is selected (default)
-  expect(getByLabelText("Tab 1").tabIndex).toBe(0);
-  expect(getByLabelText("Tab 2").tabIndex).toBe(-1);
-  expect(getByLabelText("Tab 3").tabIndex).toBe(-1);
+  // Current tab is selected (default)
+  expect(getByLabelText(props.options[props.current]).tabIndex).toBe(0);
+
+  // Other tabs are not selected
+  props.options.forEach((option, index) => {
+    if (index !== props.current) {
+      expect(getByLabelText(option).tabIndex).toBe(-1);
+    }
+  });
 });
 
 test("Ensure tab indices switch", () => {
   const { rerender, getByLabelText } = render(<Navigation {...props} />);
 
-  const tab1 = getByLabelText("Tab 1");
-  const tab2 = getByLabelText("Tab 2");
-  const tab3 = getByLabelText("Tab 3");
+  // Select tabs from start to end
+  props.options.forEach((option) => {
+    const input = getByLabelText(option);
 
-  fireEvent.click(tab2);
-  rerender(<Navigation {...props} />);
+    fireEvent.click(input);
+    rerender(<Navigation {...props} />);
 
-  // Tab 2 selected
-  expect(tab1.tabIndex).toBe(-1);
-  expect(tab2.tabIndex).toBe(0);
-  expect(tab3.tabIndex).toBe(-1);
+    expect(input.tabIndex).toBe(0);
+  });
 
-  fireEvent.click(tab3);
-  rerender(<Navigation {...props} />);
+  // Select tabs from end to start
+  const reversedOptions = [...props.options].reverse();
+  reversedOptions.forEach((option) => {
+    const input = getByLabelText(option);
 
-  // Tab 3 selected
-  expect(tab1.tabIndex).toBe(-1);
-  expect(tab2.tabIndex).toBe(-1);
-  expect(tab3.tabIndex).toBe(0);
+    fireEvent.click(input);
+    rerender(<Navigation {...props} />);
 
-  fireEvent.click(tab1);
-  rerender(<Navigation {...props} />);
-
-  // Return to Tab 1
-  expect(tab1.tabIndex).toBe(0);
-  expect(tab2.tabIndex).toBe(-1);
-  expect(tab3.tabIndex).toBe(-1);
+    expect(input.tabIndex).toBe(0);
+  });
 });
