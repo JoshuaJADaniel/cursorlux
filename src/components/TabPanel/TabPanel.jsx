@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Box, Fade } from "@material-ui/core";
+import { Fade } from "@material-ui/core";
+
+import styles from "./TabPanel.module.scss";
 
 const TabPanel = ({ index, value, children }) => {
   const [timeout, setTimeout] = useState(0);
@@ -11,9 +13,9 @@ const TabPanel = ({ index, value, children }) => {
 
   return (
     <Fade in={value === index} timeout={timeout}>
-      <Box pt={2} px={2.8} hidden={value !== index}>
+      <div className={styles.wrapper} hidden={value !== index}>
         {children}
-      </Box>
+      </div>
     </Fade>
   );
 };
@@ -22,8 +24,8 @@ TabPanel.propTypes = {
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
   children: PropTypes.oneOfType([
-    PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
   ]).isRequired,
 };
 
