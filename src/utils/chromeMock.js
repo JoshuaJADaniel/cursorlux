@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== "production") {
     let data = {};
 
     if (isArray(items)) {
-      items.map((item) => {
+      items.forEach((item) => {
         if (has(dataStore, item)) {
           data[item] = dataStore[item];
         }
