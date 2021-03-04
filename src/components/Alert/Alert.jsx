@@ -1,27 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Alert } from "@material-ui/lab";
 import { Snackbar } from "@material-ui/core";
+import { Alert as MuiAlert } from "@material-ui/lab";
 
-const DefaultAlert = ({ message, visible, onClose, severity }) => (
+const Alert = ({ message, visible, onClose, severity }) => (
   <Snackbar
     open={visible}
     onClose={onClose}
     autoHideDuration={4000}
     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
   >
-    <Alert severity={severity} variant="filled" onClose={onClose}>
+    <MuiAlert severity={severity} variant="filled" onClose={onClose}>
       {message}
-    </Alert>
+    </MuiAlert>
   </Snackbar>
 );
 
-DefaultAlert.propTypes = {
+Alert.propTypes = {
   message: PropTypes.string.isRequired,
   visible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   severity: PropTypes.string.isRequired,
 };
 
-export default DefaultAlert;
+export default Alert;
