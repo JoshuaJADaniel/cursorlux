@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "utils/chromeMock";
 import App from "components/App";
 import reportWebVitals from "reportWebVitals";
 import { ThemeProvider } from "@material-ui/styles";
