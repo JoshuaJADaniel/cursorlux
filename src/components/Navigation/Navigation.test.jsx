@@ -10,11 +10,11 @@ const props = {
 };
 
 test("Renders the correct content", () => {
-  const { getByLabelText } = render(<Navigation {...props} />);
+  const { getByText } = render(<Navigation {...props} />);
 
-  getByLabelText("Tab 1");
-  getByLabelText("Tab 2");
-  getByLabelText("Tab 3");
+  getByText("Tab 1");
+  getByText("Tab 2");
+  getByText("Tab 3");
 });
 
 test("Ensure initial tab indices are accurate", () => {
