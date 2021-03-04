@@ -11,23 +11,15 @@ const Header = () => {
 
   const handleActive = () => {
     const newActive = !active;
-
-    if (chrome && chrome.storage) {
-      chrome.storage.sync.set({ active: newActive }, () => {
-        setActive(newActive);
-      });
-      return;
-    }
-
-    setActive(newActive);
+    chrome.storage.sync.set({ active: newActive }, () => {
+      setActive(newActive);
+    });
   };
 
   useEffect(() => {
-    if (chrome && chrome.storage) {
-      chrome.storage.sync.get("active", ({ active }) => {
-        setActive(active);
-      });
-    }
+    chrome.storage.sync.get("active", ({ active }) => {
+      setActive(active);
+    });
   }, []);
 
   return (
