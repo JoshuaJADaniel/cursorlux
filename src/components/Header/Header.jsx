@@ -26,6 +26,7 @@ const Header = () => {
     <AppBar
       color="transparent"
       position="static"
+      elevation={0}
       className={styles.headerSpacing}
     >
       <Toolbar>
