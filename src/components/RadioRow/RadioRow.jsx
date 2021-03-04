@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Radio, RadioGroup, FormControlLabel, Box } from "@material-ui/core";
 
-import styles from "./RadioSet.module.scss";
+import Flexbox from "components/Flexbox";
+import { Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
 
-const RadioSet = ({ value, options, onChange }) => {
+import styles from "./RadioRow.module.scss";
+
+const RadioRow = ({ height, value, options, onChange }) => {
   const onChangeWrapper = (event, newValue) => {
     onChange(newValue);
   };
 
   return (
-    <Box mb={2}>
+    <Flexbox height={height}>
       <RadioGroup
+        row
         value={value}
         onChange={onChangeWrapper}
         className={styles.flexOverrides}
@@ -21,20 +24,21 @@ const RadioSet = ({ value, options, onChange }) => {
             key={option}
             value={option}
             label={option}
-            control={<Radio size="small" color="primary" />}
+            control={<Radio label={option} size="small" color="primary" />}
           >
             {option}
           </FormControlLabel>
         ))}
       </RadioGroup>
-    </Box>
+    </Flexbox>
   );
 };
 
-RadioSet.propTypes = {
+RadioRow.propTypes = {
+  height: PropTypes.number,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default RadioSet;
+export default RadioRow;
