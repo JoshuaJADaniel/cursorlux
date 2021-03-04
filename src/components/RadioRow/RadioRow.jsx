@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Flexbox from "components/Flexbox";
-import { Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
+import { Radio, RadioGroup, FormControlLabel, Box } from "@material-ui/core";
 
 import styles from "./RadioRow.module.scss";
 
@@ -12,24 +12,26 @@ const RadioRow = ({ height, value, options, onChange }) => {
   };
 
   return (
-    <Flexbox height={height}>
-      <RadioGroup
-        row
-        value={value}
-        onChange={onChangeWrapper}
-        className={styles.flexOverrides}
-      >
-        {options.map((option) => (
-          <FormControlLabel
-            key={option}
-            value={option}
-            label={option}
-            control={<Radio label={option} size="small" color="primary" />}
-          >
-            {option}
-          </FormControlLabel>
-        ))}
-      </RadioGroup>
+    <Flexbox height={height} alignItems="center">
+      <Box width="100%">
+        <RadioGroup
+          row
+          value={value}
+          onChange={onChangeWrapper}
+          className={styles.flexOverrides}
+        >
+          {options.map((option) => (
+            <FormControlLabel
+              key={option}
+              value={option}
+              label={option}
+              control={<Radio label={option} size="small" color="primary" />}
+            >
+              {option}
+            </FormControlLabel>
+          ))}
+        </RadioGroup>
+      </Box>
     </Flexbox>
   );
 };
