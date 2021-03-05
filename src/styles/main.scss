@@ -1,40 +1,50 @@
 @import "src/styles/variables";
 @import "src/styles/development";
 
+$popupWidth: 320px;
+$popupHeight: 600px;
+
+$hrHeight: 0.0625rem;
+$alertPadding: 0.5rem;
+$alertPosition: 4.75rem;
+$controlAdjustment: 0.125rem;
+
+$tabFontColor: #bcd3f7;
+$tabFontColorActive: #ffffff;
+
 :root {
   font-size: 16px;
 }
 
 body {
   margin: 0;
-  width: 320px;
-  height: 600px;
+  width: $popupWidth;
+  height: $popupHeight;
   position: relative;
 }
 
-div.MuiBox-root {
-  box-sizing: border-box;
-}
-
 div.MuiAlert-message {
-  padding-top: 10px;
+  padding-top: $alertPadding;
 }
 
 div.MuiSnackbar-root {
-  bottom: 75px;
-  left: 22.4px;
-  right: 22.4px;
   position: absolute;
+  bottom: $alertPosition;
+}
+
+hr.MuiDivider-root {
+  height: $hrHeight;
+  margin-top: -$hrHeight;
 }
 
 span.MuiFormControlLabel-label {
-  margin-top: 2px;
+  margin-top: $controlAdjustment;
 }
 
 .Mui-selected .MuiTab-wrapper {
-  color: #ffffff;
+  color: $tabFontColorActive;
 }
 
 .MuiTab-wrapper {
-  color: #bcd3f7;
+  color: $tabFontColor;
 }
