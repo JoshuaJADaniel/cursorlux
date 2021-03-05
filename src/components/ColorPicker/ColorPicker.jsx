@@ -14,7 +14,7 @@ const ColorPicker = ({ title, height, color, onChange }) => {
   };
 
   return (
-    <Flexbox height={height} alignItems="center">
+    <Flexbox height={height} alignItems="flex-end">
       <Box width="100%">
         <Typography>{title}</Typography>
         <Box mt={2}>
