@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import colors from "data/colors";
 import Flexbox from "components/Flexbox";
-import { CirclePicker } from "react-color";
+import CirclePicker from "react-color/lib/Circle";
 import { Box, Typography } from "@material-ui/core";
 
 import styles from "./ColorPicker.module.scss";
