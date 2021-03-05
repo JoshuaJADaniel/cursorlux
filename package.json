@@ -16,8 +16,7 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
-    "source-map-explorer": "^2.5.2",
-    "web-vitals": "^1.1.0"
+    "source-map-explorer": "^2.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
