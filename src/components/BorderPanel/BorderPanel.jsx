@@ -1,37 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import colors from "data/colors";
+import {
+  changeColor,
+  changeStyle,
+  changeOpacity,
+  changeThickness,
+} from "actions/border";
+import borderTypes from "data/borderTypes";
+import { useSelector, useDispatch } from "react-redux";
+import { percentFormat, pixelFormat } from "utils/formatString";
+
 import TabPanel from "components/TabPanel";
 import RadioRow from "components/RadioRow";
 import ColorPicker from "components/ColorPicker";
 import SliderSection from "components/SliderSection";
-import { percentFormat, pixelFormat } from "utils/formatString";
 
 import { Divider, Box } from "@material-ui/core";
 
 const BorderPanel = ({ value, index }) => {
-  const [color, setColor] = useState(colors[0]);
-  const [thickness, setThickness] = useState(4);
-  const [opacity, setOpacity] = useState(20);
-  const [style, setStyle] = useState("Solid");
+  const dispatch = useDispatch();
 
-  const options = ["Solid", "Dashed", "Dotted"];
+  const color = useSelector((state) => state.border.color);
+  const style = useSelector((state) => state.border.style);
+  const opacity = useSelector((state) => state.border.opacity);
+  const thickness = useSelector((state) => state.border.thickness);
+
+  const handleStyle = (style) => {
+    dispatch(changeStyle(style));
+  };
 
   const handleColor = (color) => {
-    setColor(color);
+    dispatch(changeColor(color));
   };
 
   const handleThickness = (thickness) => {
-    setThickness(thickness);
+    dispatch(changeThickness(thickness));
   };
 
   const handleOpacity = (opacity) => {
-    setOpacity(opacity);
-  };
-
-  const handleStyle = (style) => {
-    setStyle(style);
+    dispatch(changeOpacity(opacity));
   };
 
   return (
@@ -40,7 +48,7 @@ const BorderPanel = ({ value, index }) => {
         <RadioRow
           height={70}
           value={style}
-          options={options}
+          options={borderTypes}
           onChange={handleStyle}
         />
       </div>

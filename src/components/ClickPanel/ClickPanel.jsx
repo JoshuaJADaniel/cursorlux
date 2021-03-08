@@ -1,35 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import colors from "data/colors";
+import {
+  changeSize,
+  changeColor,
+  changeOpacity,
+  changeEnabled,
+} from "actions/click";
+import { useSelector, useDispatch } from "react-redux";
+import { percentFormat, pixelFormat } from "utils/formatString";
+
 import Flexbox from "components/Flexbox";
 import TabPanel from "components/TabPanel";
 import ColorPicker from "components/ColorPicker";
 import SliderSection from "components/SliderSection";
-import { percentFormat, pixelFormat } from "utils/formatString";
 
 import { Divider, Checkbox, FormControlLabel, Box } from "@material-ui/core";
 
 const ClickPanel = ({ value, index }) => {
-  const [color, setColor] = useState(colors[0]);
-  const [enabled, setEnabled] = useState(true);
-  const [opacity, setOpacity] = useState(20);
-  const [size, setSize] = useState(40);
+  const dispatch = useDispatch();
+
+  const color = useSelector((state) => state.click.color);
+  const enabled = useSelector((state) => state.click.enabled);
+  const opacity = useSelector((state) => state.click.opacity);
+  const size = useSelector((state) => state.click.size);
 
   const handleEnabled = (event) => {
-    setEnabled(event.target.checked);
+    dispatch(changeEnabled(event.target.checked));
   };
 
   const handleColor = (color) => {
-    setColor(color);
+    dispatch(changeColor(color));
   };
 
   const handleOpacity = (opacity) => {
-    setOpacity(opacity);
+    dispatch(changeOpacity(opacity));
   };
 
   const handleSize = (size) => {
-    setSize(size);
+    dispatch(changeSize(size));
   };
 
   return (

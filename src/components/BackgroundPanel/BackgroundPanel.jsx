@@ -1,34 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import colors from "data/colors";
+import {
+  changeSize,
+  changeDelay,
+  changeColor,
+  changeOpacity,
+} from "actions/background";
+import { useSelector, useDispatch } from "react-redux";
+import { percentFormat, pixelFormat, secondFormat } from "utils/formatString";
+
 import TabPanel from "components/TabPanel";
 import ColorPicker from "components/ColorPicker";
 import SliderSection from "components/SliderSection";
-import { percentFormat, pixelFormat, secondFormat } from "utils/formatString";
 
 import { Divider, Box } from "@material-ui/core";
 
 const BackgroundPanel = ({ value, index }) => {
-  const [color, setColor] = useState(colors[0]);
-  const [opacity, setOpacity] = useState(20);
-  const [delay, setDelay] = useState(0.05);
-  const [size, setSize] = useState(40);
+  const dispatch = useDispatch();
+
+  const size = useSelector((state) => state.background.size);
+  const color = useSelector((state) => state.background.color);
+  const delay = useSelector((state) => state.background.delay);
+  const opacity = useSelector((state) => state.background.opacity);
 
   const handleColor = (color) => {
-    setColor(color);
+    dispatch(changeColor(color));
   };
 
   const handleOpacity = (opacity) => {
-    setOpacity(opacity);
+    dispatch(changeOpacity(opacity));
   };
 
   const handleSize = (size) => {
-    setSize(size);
+    dispatch(changeSize(size));
   };
 
   const handleDelay = (delay) => {
-    setDelay(delay);
+    dispatch(changeDelay(delay));
   };
 
   return (
