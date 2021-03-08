@@ -1,5 +1,4 @@
 {
-  "manifest_version": 2,
   "name": "Mouse Highlighter",
   "version": "1.0.0",
   "description": "A customizable mouse highlighter extension to highlight your cursor and clicks!",
@@ -13,5 +12,16 @@
     "96": "icon96.png",
     "128": "icon128.png"
   },
-  "permissions": ["storage"]
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "js": ["foreground.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["storage"],
+  "manifest_version": 2
 }
