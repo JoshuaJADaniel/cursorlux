@@ -57,7 +57,7 @@ const App = () => {
   useEffect(() => {
     chrome.storage.sync.get(
       ["active", "click", "background", "border"],
-      ({ active, click, background, border }) => {
+      ({ click, background, border }) => {
         dispatch(initClick(click));
         dispatch(initBorder(border));
         dispatch(initBackground(background));
