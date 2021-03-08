@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import { initClick } from "actions/click";
+import { initBorder } from "actions/border";
+import { initBackground } from "actions/background";
+import { useDispatch, useSelector } from "react-redux";
 
 import Alert from "components/Alert";
 import Button from "components/Button";
@@ -13,6 +18,12 @@ import BackgroundPanel from "components/BackgroundPanel";
 import { Box } from "@material-ui/core";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const clickSettings = useSelector((state) => state.click);
+  const borderSettings = useSelector((state) => state.border);
+  const backgroundSettings = useSelector((state) => state.background);
+
   const [currentTab, setCurrentTab] = useState(0);
   const [alertState, setAlertState] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
@@ -28,13 +39,31 @@ const App = () => {
 
   const saveSettings = () => {
     closeAlert();
-    setTimeout(() => {
-      let success = Math.random() < 0.5;
+
+    const updatedSettings = {
+      click: clickSettings,
+      border: borderSettings,
+      background: backgroundSettings,
+    };
+
+    chrome.storage.sync.set(updatedSettings, () => {
+      let success = !chrome.runtime.lastError;
       setAlertState(success ? "success" : "error");
       setAlertMessage(success ? "Saved successfully!" : "Error, try again!");
       setAlertVisible(true);
-    }, 200);
+    });
   };
+
+  useEffect(() => {
+    chrome.storage.sync.get(
+      ["active", "click", "background", "border"],
+      ({ active, click, background, border }) => {
+        dispatch(initClick(click));
+        dispatch(initBorder(border));
+        dispatch(initBackground(background));
+      }
+    );
+  }, [dispatch]);
 
   return (
     <>
