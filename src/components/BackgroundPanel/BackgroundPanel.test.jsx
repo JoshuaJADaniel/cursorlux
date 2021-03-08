@@ -1,8 +1,8 @@
 import BackgroundPanel from "./BackgroundPanel";
-import { render } from "@testing-library/react";
+import reduxRender from "utils/reduxRender";
 
 test("Renders the correct content", () => {
-  const { getByText, getAllByRole } = render(
+  const { getByText, getAllByRole } = reduxRender(
     <BackgroundPanel index={0} value={0} />
   );
 

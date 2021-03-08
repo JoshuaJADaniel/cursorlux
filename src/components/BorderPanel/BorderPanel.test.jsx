@@ -1,8 +1,8 @@
 import BorderPanel from "./BorderPanel";
-import { render } from "@testing-library/react";
+import reduxRender from "utils/reduxRender";
 
 test("Renders the correct content", () => {
-  const { getByText, getAllByRole, getByTestId } = render(
+  const { getByText, getAllByRole, getByTestId } = reduxRender(
     <BorderPanel index={0} value={0} />
   );
 
