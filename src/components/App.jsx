@@ -54,7 +54,7 @@ const App = () => {
         message={alertMessage}
       />
       <Flexbox justifyContent="center">
-        <Box width={280}>
+        <Box width={278}>
           <Button height={85} onClick={saveSettings} text={"Save Settings"} />
         </Box>
       </Flexbox>
