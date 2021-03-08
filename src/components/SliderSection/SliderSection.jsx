@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, Slider, Typography } from "@material-ui/core";
-import Flexbox from "../Flexbox";
+import Flexbox from "components/Flexbox";
 
 const SliderSection = ({
   min,
