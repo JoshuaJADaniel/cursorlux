@@ -6,7 +6,6 @@ if (process.env.NODE_ENV !== "production") {
   const { isArray, isString, has } = require("lodash");
 
   let dataStore = {
-    active: false,
     click: {
       size: 40,
       opacity: 35,
