@@ -1,6 +1,5 @@
 import SliderSection from "./SliderSection";
-import { render, fireEvent } from "@testing-library/react";
-import "@testing-library/user-event";
+import { render } from "@testing-library/react";
 
 const props = {
   min: 0,
