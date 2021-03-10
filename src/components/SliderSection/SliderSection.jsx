@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Slider, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
+
+import SliderRow from "components/SliderRow";
 import Flexbox from "components/Flexbox";
 
 const SliderSection = ({
@@ -21,15 +23,13 @@ const SliderSection = ({
     <Flexbox height={height || null} alignItems="center">
       <Box pt={1.5} pb={0.3125} width="100%">
         <Typography gutterBottom>{title}</Typography>
-        <Slider
-          marks
+        <SliderRow
           max={max}
           min={min}
           step={step}
           value={value}
           onChange={onChangeWrapper}
           valueLabelFormat={format}
-          valueLabelDisplay="auto"
         />
       </Box>
     </Flexbox>
