@@ -1,0 +1,34 @@
+.clickEffect,
+#clickBackground {
+  position: fixed;
+  z-index: 2147483647;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease-in-out;
+  transform: translateZ(0) translate(-50%, -50%);
+}
+
+#clickBackground {
+  overflow: visible;
+  border-radius: 50%;
+}
+
+.clickEffect > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  animation: expand 0.35s cubic-bezier(0, 0, 0.25, 1);
+}
+
+@keyframes expand {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
