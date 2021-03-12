@@ -7,7 +7,8 @@ $popupHeight: 600px;
 $hrHeight: 0.0625rem;
 $alertPadding: 0.5rem;
 $alertPosition: 4.75rem;
-$controlAdjustment: 0.125rem;
+$controlTextAdjustment: 0.125rem;
+$controlLabelAdjustment: 0rem;
 
 $tabFontColor: #bcd3f7;
 $tabFontColorActive: #ffffff;
@@ -38,7 +39,11 @@ hr.MuiDivider-root {
 }
 
 span.MuiFormControlLabel-label {
-  margin-top: $controlAdjustment;
+  margin-top: $controlTextAdjustment;
+}
+
+label.MuiFormControlLabel-root {
+  margin-right: $controlLabelAdjustment;
 }
 
 .Mui-selected .MuiTab-wrapper {
