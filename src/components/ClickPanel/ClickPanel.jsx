@@ -60,7 +60,7 @@ const ClickPanel = ({ value, index }) => {
         title="Size"
         height={85}
         min={0}
-        max={100}
+        max={160}
         step={5}
         value={size}
         format={pixelFormat}

@@ -57,8 +57,8 @@ const BorderPanel = ({ value, index }) => {
         title="Thickness"
         height={85}
         min={0}
-        max={20}
-        step={1}
+        max={5}
+        step={0.2}
         value={thickness}
         format={pixelFormat}
         onChange={handleThickness}
