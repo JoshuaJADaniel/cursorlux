@@ -11,8 +11,13 @@ const CLICK = "click";
 const BORDER = "border";
 const BACKGROUND = "background";
 
+// Border style keys
+const DOTTED = "Dotted";
+const DASHED = "Dashed";
+const SOLID = "Solid";
+
 // Setting storage and elements
-let activated, backgroundElement;
+let activated, backgroundElement, circleElement;
 let clickSettings, backgroundSettings, borderSettings;
 
 chrome.storage.sync.get(
@@ -66,13 +71,13 @@ function initializeBackground() {
   backgroundElement.setAttribute("viewBox", "0 0 24 24");
   backgroundElement.setAttribute("xmlns", SVG_NAMESPACE);
 
-  const circle = document.createElementNS(SVG_NAMESPACE, "circle");
-  circle.setAttribute("vector-effect", "non-scaling-stroke");
+  circleElement = document.createElementNS(SVG_NAMESPACE, "circle");
+  circleElement.setAttribute("vector-effect", "non-scaling-stroke");
   ["cx", "cy", "r"].forEach((attribute) => {
-    circle.setAttribute(attribute, "12");
+    circleElement.setAttribute(attribute, "12");
   });
 
-  backgroundElement.appendChild(circle);
+  backgroundElement.appendChild(circleElement);
   document.body.appendChild(backgroundElement);
 }
 
@@ -91,6 +96,27 @@ function updateStyles() {
     "fill",
     hexToRgba(backgroundSettings.color, backgroundSettings.opacity / 100)
   );
+
+  switch (borderSettings.style) {
+    case DASHED:
+      circleElement.setAttribute("stroke-linecap", "butt");
+      circleElement.setAttribute(
+        "stroke-dasharray",
+        computeDashedSizing(backgroundSettings.size)
+      );
+      break;
+    case DOTTED:
+      circleElement.setAttribute("stroke-linecap", "round");
+      circleElement.setAttribute(
+        "stroke-dasharray",
+        computeDottedSizing(backgroundSettings.size)
+      );
+      break;
+    case SOLID:
+      circleElement.removeAttribute("stroke-linecap");
+      circleElement.removeAttribute("stroke-dasharray");
+      break;
+  }
 }
 
 function createClick(x, y) {
@@ -155,6 +181,23 @@ function removeListeners() {
   document.removeEventListener("mouseleave", cursorExitListener);
   document.removeEventListener("mouseenter", cursorEnterListener);
   document.removeEventListener("mousedown", clickListener);
+}
+
+function computeDashedSizing(diameter, gap = 12) {
+  const dashes = computeDashes(diameter);
+  return `${(Math.PI * diameter) / dashes - gap} ${gap}`;
+}
+
+function computeDottedSizing(diameter) {
+  return `0 ${(Math.PI * diameter) / computeDots(diameter)}`;
+}
+
+function computeDashes(diameter) {
+  return Math.ceil(diameter / 15);
+}
+
+function computeDots(diameter) {
+  return Math.ceil(diameter / 5);
 }
 
 function extractRgb(hex) {
