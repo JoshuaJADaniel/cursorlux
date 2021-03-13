@@ -67,6 +67,7 @@ function initializeBackground() {
   backgroundElement.setAttribute("xmlns", SVG_NAMESPACE);
 
   const circle = document.createElementNS(SVG_NAMESPACE, "circle");
+  circle.setAttribute("vector-effect", "non-scaling-stroke");
   ["cx", "cy", "r"].forEach((attribute) => {
     circle.setAttribute(attribute, "12");
   });
@@ -100,6 +101,7 @@ function createClick(x, y) {
   click.style.left = `${x}px`;
   click.style.width = `${clickSettings.size}px`;
   click.style.height = `${clickSettings.size}px`;
+  click.style.opacity = `${clickSettings.opacity / 100}`;
 
   const child = document.createElement("div");
   child.style.background = hexToRgba(
