@@ -44,7 +44,11 @@ const Header = () => {
       <Toolbar>
         <img src={FullLogo} height={24} alt="Logo" />
         <div className={styles.grow} />
-        <Tooltip placement="left" title={active ? "Pause" : "Activate"}>
+        <Tooltip
+          placement="left"
+          title={active ? "Pause" : "Activate"}
+          PopperProps={{ disablePortal: true }}
+        >
           <IconButton
             edge="end"
             onClick={handleActive}
