@@ -154,8 +154,15 @@ function clickListener(event) {
 }
 
 function backgroundListener(event) {
-  backgroundElement.style.top = `${event.clientY}px`;
-  backgroundElement.style.left = `${event.clientX}px`;
+  if (backgroundSettings.delay) {
+    setTimeout(() => {
+      backgroundElement.style.top = `${event.clientY}px`;
+      backgroundElement.style.left = `${event.clientX}px`;
+    }, backgroundSettings.delay * 1000);
+  } else {
+    backgroundElement.style.top = `${event.clientY}px`;
+    backgroundElement.style.left = `${event.clientX}px`;
+  }
 }
 
 function cursorExitListener() {
