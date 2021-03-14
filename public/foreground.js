@@ -2,8 +2,8 @@
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
 // Identifiers used by CSS
-const BACKGROUND_ID = "clickBackground";
-const EFFECT_CLASS = "clickEffect";
+const BACKGROUND_ID = "__CURSORLUX__background";
+const CLICK_CLASS = "__CURSORLUX__click";
 
 // Chrome storage setting keys
 const ACTIVE = "active";
@@ -121,7 +121,7 @@ function updateStyles() {
 
 function createClick(x, y) {
   const click = document.createElement("div");
-  click.className = EFFECT_CLASS;
+  click.className = CLICK_CLASS;
 
   click.style.top = `${y}px`;
   click.style.left = `${x}px`;
