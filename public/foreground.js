@@ -99,13 +99,16 @@ function updateStyles() {
 
   switch (borderSettings.style) {
     case DASHED:
-      circleElement.setAttribute("stroke-linecap", "butt");
-      circleElement.setAttribute(
-        "stroke-dasharray",
-        computeDashedSizing(backgroundSettings.size)
+      const { offset, dashArray } = computeDashedSizing(
+        backgroundSettings.size
       );
+
+      circleElement.setAttribute("stroke-dashoffset", offset);
+      circleElement.setAttribute("stroke-dasharray", dashArray);
+      circleElement.setAttribute("stroke-linecap", "butt");
       break;
     case DOTTED:
+      circleElement.setAttribute("stroke-dashoffset", 0);
       circleElement.setAttribute("stroke-linecap", "round");
       circleElement.setAttribute(
         "stroke-dasharray",
@@ -115,6 +118,7 @@ function updateStyles() {
     case SOLID:
       circleElement.removeAttribute("stroke-linecap");
       circleElement.removeAttribute("stroke-dasharray");
+      circleElement.removeAttribute("stroke-dashoffset");
       break;
   }
 }
@@ -192,7 +196,13 @@ function removeListeners() {
 
 function computeDashedSizing(diameter, gap = 12) {
   const dashes = computeDashes(diameter);
-  return `${(Math.PI * diameter) / dashes - gap} ${gap}`;
+  const dashLength = (Math.PI * diameter) / dashes - gap;
+  const offset = (Math.PI * diameter) / 4 + dashLength / 2;
+
+  return {
+    offset: offset,
+    dashArray: `${dashLength} ${gap}`,
+  };
 }
 
 function computeDottedSizing(diameter) {
