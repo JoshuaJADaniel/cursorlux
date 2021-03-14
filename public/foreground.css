@@ -10,7 +10,8 @@
 
 #__CURSORLUX__background {
   overflow: visible;
-  border-radius: 50%;
+  left: -1000px;
+  top: -1000px;
 }
 
 .__CURSORLUX__click > div {
