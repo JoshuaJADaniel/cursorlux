@@ -76,17 +76,19 @@ const App = () => {
       <ClickPanel index={0} value={currentTab} />
       <BackgroundPanel index={1} value={currentTab} />
       <BorderPanel index={2} value={currentTab} />
-      <Alert
-        onClose={closeAlert}
-        severity={alertState}
-        visible={alertVisible}
-        message={alertMessage}
-      />
       <Flexbox justifyContent="center">
         <Box width={278}>
           <Button height={85} onClick={saveSettings} text={"Save Settings"} />
         </Box>
       </Flexbox>
+      <Box position="relative">
+        <Alert
+          onClose={closeAlert}
+          severity={alertState}
+          visible={alertVisible}
+          message={alertMessage}
+        />
+      </Box>
     </>
   );
 };
