@@ -59,8 +59,8 @@ const ClickPanel = ({ value, index }) => {
       <SliderSection
         title="Size"
         height={85}
-        min={0}
-        max={160}
+        min={30}
+        max={200}
         step={5}
         value={size}
         format={pixelFormat}

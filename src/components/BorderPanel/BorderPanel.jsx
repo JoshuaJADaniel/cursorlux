@@ -56,9 +56,9 @@ const BorderPanel = ({ value, index }) => {
       <SliderSection
         title="Thickness"
         height={85}
-        min={0}
-        max={5}
-        step={0.2}
+        min={1}
+        max={10}
+        step={0.5}
         value={thickness}
         format={pixelFormat}
         onChange={handleThickness}

@@ -46,8 +46,8 @@ const BackgroundPanel = ({ value, index }) => {
       <SliderSection
         title="Size"
         height={75}
-        min={0}
-        max={160}
+        min={30}
+        max={200}
         step={5}
         value={size}
         format={pixelFormat}
@@ -69,8 +69,8 @@ const BackgroundPanel = ({ value, index }) => {
         title="Follow Delay"
         height={75}
         min={0}
-        max={0.5}
-        step={0.05}
+        max={0.1}
+        step={0.01}
         value={delay}
         format={secondFormat}
         onChange={handleDelay}
