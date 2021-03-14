@@ -14,7 +14,7 @@ import styles from "./Header.module.scss";
 
 const Tooltip = withStyles({
   tooltipPlacementLeft: {
-    margin: "0",
+    margin: "4px",
   },
 })(MuiTooltip);
 
