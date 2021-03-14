@@ -3,22 +3,22 @@ chrome.runtime.onInstalled.addListener((details) => {
     chrome.storage.sync.set({
       active: true,
       click: {
-        size: 40,
-        opacity: 35,
+        size: 120,
+        opacity: 30,
         enabled: true,
-        color: "#e91e63",
+        color: "#2196f3",
       },
       background: {
-        size: 80,
-        delay: 0.35,
+        size: 120,
+        delay: 0,
         opacity: 10,
-        color: "#8bc34a",
+        color: "#2196f3",
       },
       border: {
-        thickness: 10,
-        style: "Solid",
-        color: "#ff9800",
-        opacity: 80,
+        thickness: 2,
+        style: "Dashed",
+        color: "#2196f3",
+        opacity: 65,
       },
     });
   }
